@@ -13,8 +13,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-/public/css
-/public/js
+/public/styles
+/public/scripts
+/public/mix-manifest.json
+/public/build
 
 # composer.json
 # composer.lock
