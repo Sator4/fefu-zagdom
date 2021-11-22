@@ -1,14 +1,14 @@
+@import "./uikit.scss";
 @import "../layouts/base.scss";
 
 $primary: red;
 $secondary: blue;
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    color: $primary;
 }
 
 .HW{
     text-align: center;
-    color: $primary;
-    font-family: 'Montserrat', sans-serif;
+    color: $secondary;
 }

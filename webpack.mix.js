@@ -1,15 +1,5 @@
 const mix = require('laravel-mix');
-
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
+const { resolve } = require('path');
 
 mix
     .setPublicPath('public')
@@ -17,5 +7,7 @@ mix
     .sass('resources/styles/main.scss', 'build/bundle.css')
     .browserSync({
         proxy: 'localhost',
-        files: ['resources/**/*'],
+        files: ['resources/**/*']
     });
+
+mix.alias({'uikit-util': resolve(__dirname, 'node_modules/uikit/src/js/util')});
