@@ -223,6 +223,9 @@ return [
         */
         'filters' => [
             'get' => 'data_get',
+            'asset' => function (string $file) : string {
+                return "/assets/$file";
+            }
         ],
     ],
 ];

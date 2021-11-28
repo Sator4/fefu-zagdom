@@ -1,14 +1,69 @@
 {% import _self as macros %}
 
+{% set scope = {
+    menu: [
+        {
+            url: '/',
+            name: 'Реализованные проекты',
+        },
+        {
+            url: '/',
+            name: 'Новости',
+        },
+        {
+            url: '/',
+            name: 'Контакты',
+        },
+    ],
+    phone: '+7 (800) 555-35-35',
+} %}
 
-{% macro content() %}
-    <div class="flex-container">
-        <div class="Container">
-            <img src="../../images/header_logo.png" height="39" width="160">
-            <img src="../../images/telephone.svg" height="16" width="16">
+{% macro content(scope) %}
+
+    <div class="Container Header">
+        <div class="Header__logo">
+            {{ macros.logo }}
         </div>
+
+        {% include "@components/site-nav/site-nav.twig" with {
+            items: scope.menu,
+        } %}
+
+        <div class="Header__phone">
+            {{ macros.phone(scope.phone) }}
+        </div>
+
+        {{ macros.button }}
+
+        <!-- Header
+        <img src="../../images/header_logo.png" height="39" width="160">
+        <img src="../../icons/telephone.svg" height="16" width="16"> -->
     </div>
     
 {% endmacro %}  
 
-{{ macros.content }}
+{{ macros.content(scope) }}
+
+{% macro logo() %}
+    <a href="{{ route('home') }}">
+        <img src="{{ 'images/header_logo.png' | asset }}" alt="Загородный дом">
+    </a>
+{% endmacro %}
+
+
+{% macro phone(value) %}
+    <a class="PrimaryPhone" href="tel:{{ value }}">
+        <img
+            class="PrimaryPhone__icon" 
+            src="{{ 'icons/telephone.svg'|asset }}"
+            alt="Телефон"
+        >
+        {{ value }}
+    </a>
+{% endmacro %}
+
+{% macro button() %}
+    <button type="button" class="Button Button--primary">
+        Оставить заявку
+    </button>
+{% endmacro %}

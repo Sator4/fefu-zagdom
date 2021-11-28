@@ -1,5 +1,25 @@
+$color-black: #000000;
+$color-gray: #666666;
+$color-green--dark: #254741;
+$color-green: #259225;
+
+$font-weight-medium: 500;
+
+
+@function toRem($size) {
+    @return $size / 16px * 1rem;
+}
+
 @import "./uikit.scss";
 @import "../layouts/base.scss";
+
+
+@import "./elements.scss";
+
+
+@import "../components/header/header.scss";
+@import "../components/site-nav/site-nav.scss";
+
 
 $primary: red;
 $secondary: blue;
