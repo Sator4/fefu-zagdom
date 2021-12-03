@@ -15,38 +15,16 @@
             name: 'Контакты',
         },
     ],
-    phone: '+7 (800) 555-35-35',
+    phone: '+7 (214) 790-01-46',
 } %}
 
-{% macro content(scope) %}
-
-    <div class="Container Header">
-        <div class="Header__logo">
-            {{ macros.logo }}
-        </div>
-
-        {% include "@components/site-nav/site-nav.twig" with {
-            items: scope.menu,
-        } %}
-
-        <div class="Header__phone">
-            {{ macros.phone(scope.phone) }}
-        </div>
-
-        {{ macros.button }}
-
-        <!-- Header
-        <img src="../../images/header_logo.png" height="39" width="160">
-        <img src="../../icons/telephone.svg" height="16" width="16"> -->
-    </div>
-    
-{% endmacro %}  
-
-{{ macros.content(scope) }}
 
 {% macro logo() %}
     <a href="{{ route('home') }}">
-        <img src="{{ 'images/header_logo.png' | asset }}" alt="Загородный дом">
+        <img 
+            src="{{ 'images/header_logo.png' | asset }}" 
+            alt="Загородный дом"
+        >
     </a>
 {% endmacro %}
 
@@ -56,14 +34,93 @@
         <img
             class="PrimaryPhone__icon" 
             src="{{ 'icons/telephone.svg'|asset }}"
+            width="16"
+            height="16"
             alt="Телефон"
         >
         {{ value }}
     </a>
 {% endmacro %}
 
+
 {% macro button() %}
     <button type="button" class="Button Button--primary">
         Оставить заявку
     </button>
 {% endmacro %}
+
+
+{% macro offCanvasButton() %}
+    <button 
+        type="button"
+        id="offcanvas-button"
+        class="Button Button--primary Button--icon"
+        uk-toggle="target: #offcanvas"
+    >
+        <img
+            src="{{ 'icons/button_strips_white.svg'|asset }}"
+            width="24"
+            height="14"
+            alt="">
+    </button>
+{% endmacro %}
+
+
+    
+
+{% macro offCanvas(scope) %}
+    <div id="offcanvas" class="OffCanvas" uk-offcanvas="overlay: true; flip: true">
+        <div class="uk-offcanvas-bar OffCanvas__layout">
+            <button class="uk-offcanvas-close OffCanvas__close" type="button">
+                <img
+                    src="{{ 'icons/cross_white.svg'|asset }}"
+                    width="12"
+                    height="12"
+                    alt=""
+                >
+            </button>
+            <nav class="OffCanvas__nav">
+                {% include '@components/site-nav/site-nav.twig' with {
+                    items: scope.menu,
+                    column: true,
+                } %}
+            </nav>
+            <div class="OffCanvas__contacts">
+                {% include '@components/contacts/contacts.twig' %}
+            </div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro content(scope) %}
+    {% import _self as macros %}
+
+    <div class="Container Header">
+        <div class="Header__logo">
+            {{ macros.logo }}
+        </div>
+
+        <nav class="Header__nav">
+            {% include "@components/site-nav/site-nav.twig" with {
+                items: scope.menu,
+            } %}
+        </nav>
+
+        <div class="Header__phone">
+            {{ macros.phone(scope.phone) }}
+        </div>
+
+        <div class="Header__feedbackButton">
+            {{ macros.button }}
+        </div>
+
+        <div class="Header__offCanvasButton">
+            {{ macros.offCanvasButton }}
+        </div>
+    </div>
+
+    {{ macros.offCanvas(scope) }}
+    
+{% endmacro %}  
+
+{{ macros.content(scope) }}

@@ -1,0 +1,75 @@
+@import 'settings';
+
+$bp-xs: $breakpoint-xsmall;
+$bp-sm: $breakpoint-small;
+$bp-md: $breakpoint-medium;
+$bp-lg: $breakpoint-large;
+$bp-xl: $breakpoint-xlarge;
+
+
+@function vw-up($bp) {
+    @return '(min-width: #{$bp})';
+}
+@function vw-down($bp) {
+    @return '(max-width: #{$bp - 1})';
+}
+
+
+@mixin vw-xs-up {
+    @media #{vw-up($bp-xs)}{
+        @content;
+    }
+}
+@mixin vw-xs-down {
+    @media #{vw-down($bp-xs)}{
+        @content;
+    }
+}
+
+
+@mixin vw-sm-up {
+    @media #{vw-up($bp-sm)}{
+        @content;
+    }
+}
+@mixin vw-sm-down {
+    @media #{vw-down($bp-sm)}{
+        @content;
+    }
+}
+
+
+@mixin vw-md-up {
+    @media #{vw-up($bp-md)}{
+        @content;
+    }
+}
+@mixin vw-md-down {
+    @media #{vw-down($bp-md)}{
+        @content;
+    }
+}
+
+
+@mixin vw-lg-up {
+    @media #{vw-up($bp-lg)}{
+        @content;
+    }
+}
+@mixin vw-lg-down {
+    @media #{vw-down($bp-lg)}{
+        @content;
+    }
+}
+
+
+@mixin vw-xl-up {
+    @media #{vw-up($bp-xl)}{
+        @content;
+    }
+}
+@mixin vw-xl-down {
+    @media #{vw-down($bp-xl)}{
+        @content;
+    }
+}

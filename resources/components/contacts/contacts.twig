@@ -1,0 +1,53 @@
+{% import _self as macros %}
+
+{% set scope = {
+    phone: "+7 (214) 790-01-46",
+    email: "info@gmail.com",
+    location: "г. Владивосток<br>ул. Выселковая, 49, стр. 3"
+} %}
+
+
+{% macro content(scope) %}
+
+    <div class="ContactsSection">
+        <p class="ContactsSection__item">
+            <a href="tel:{{ scope.phone }}" class="ContactsItem">
+                <img
+                    src="{{ 'icons/telephone_white.svg'|asset }}"
+                    width="24"
+                    height="24"
+                    alt=""
+                    class="ContactsItem__icon"
+                >
+                {{ scope.phone }}
+            </a>
+        </p>
+        <p class="ContactsSection__item">
+            <a href="email:{{ scope.email }}" class="ContactsItem">
+                <img 
+                src="{{ 'icons/email_white.svg'|asset }}"
+                width="24"
+                height="24"
+                alt=""
+                class="ContactsItem__icon"
+            >
+            {{ scope.email }}
+            </a>
+        </p>
+        <p class="ContactsSection__item">
+            <a href="email:{{ scope.location }}" class="ContactsItem">
+                <img 
+                src="{{ 'icons/location_marker_white.svg'|asset }}"
+                width="24"
+                height="14"
+                alt=""
+                class="ContactsItem__icon"
+            >
+            {{ scope.location | raw }}
+            </a>
+        </p>
+    </div>
+
+{% endmacro %}
+
+{{ macros.content(scope) }}
