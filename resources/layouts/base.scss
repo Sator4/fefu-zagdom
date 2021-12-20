@@ -1,10 +1,30 @@
-.Layout{
+.Layout {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 
-    &__main{
+    &__main {
         flex: 1;
+    }
+
+    &__section {
+        padding-y: 80px;
+
+        &--slider {
+            padding-y: 40px 60px;
+
+            @include vw-sm-down {
+                padding-y: 20px 40px;
+            }
+        }
+
+        &--featured {
+            padding-y: 60px 120px;
+
+            @include vw-sm-down {
+                padding-y: 40px 80px;
+            }
+        }
     }
 }
 

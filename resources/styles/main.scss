@@ -1,6 +1,8 @@
 $color-black: #000000;
 $color-gray: #666666;
+$color-gray--light: #C6C6C6;
 $color-green--dark: #254741;
+$color-snow-drift: #F5F7F3;
 $color-green: #029F59;
 
 $font-weight-regular: 400;
@@ -14,6 +16,7 @@ $font-weight-bold: 700;
 
 @import "./media.scss";
 @import "./uikit.scss";
+@import "./swiper.scss";
 @import "../layouts/base.scss";
 
 
@@ -23,3 +26,5 @@ $font-weight-bold: 700;
 @import "../components/header/header.scss";
 @import "../components/site-nav/site-nav.scss";
 @import "../components/contacts/contacts.scss";
+@import "../components/slider/slider.scss";
+@import "../components/featured-section/featured-section.scss";
