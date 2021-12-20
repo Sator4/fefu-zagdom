@@ -17,6 +17,7 @@ $font-weight-bold: 700;
 @import "./media.scss";
 @import "./uikit.scss";
 @import "./swiper.scss";
+@import "./mixins.scss";
 @import "../layouts/base.scss";
 
 
@@ -28,3 +29,5 @@ $font-weight-bold: 700;
 @import "../components/contacts/contacts.scss";
 @import "../components/slider/slider.scss";
 @import "../components/featured-section/featured-section.scss";
+@import "../components/projects-section/projects-section.scss";
+@import "../components/news-list/news-list.scss";
