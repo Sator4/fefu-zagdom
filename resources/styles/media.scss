@@ -1,5 +1,6 @@
 @import 'settings';
 
+$bp-xxs: $breakpoint-xxsmall;
 $bp-xs: $breakpoint-xsmall;
 $bp-sm: $breakpoint-small;
 $bp-md: $breakpoint-medium;
@@ -12,6 +13,18 @@ $bp-xl: $breakpoint-xlarge;
 }
 @function vw-down($bp) {
     @return '(max-width: #{$bp - 1})';
+}
+
+
+@mixin vw-xxs-up {
+    @media #{vw-up($bp-xxs)}{
+        @content;
+    }
+}
+@mixin vw-xxs-down {
+    @media #{vw-down($bp-xxs)}{
+        @content;
+    }
 }
 
 

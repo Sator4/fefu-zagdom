@@ -14,6 +14,14 @@
         }
     }
 
+    &--white {
+        %SiteNav--white__item {
+            :root & {
+                color: white;
+            }
+        }
+    }
+
     &__listItem {
         @extend %SiteNav--column__listItem;
         &:not(:last-child){
@@ -22,6 +30,8 @@
     }
 
     &__item {
+        @extend %SiteNav--white__item;
+
         line-height: 1.2;
         color: $color-gray;
 

@@ -22,7 +22,7 @@
 {% macro logo() %}
     <a href="{{ route('home') }}">
         <img 
-            src="{{ 'images/header_logo.png' | asset }}" 
+            src="{{ 'images/logo.png' | asset }}" 
             alt="Загородный дом"
         >
     </a>
@@ -44,7 +44,7 @@
 
 
 {% macro button() %}
-    <button type="button" class="Button Button--primary">
+    <button type="button" class="Button Button--primary data-uk-toggle="#feedback"">
         Оставить заявку
     </button>
 {% endmacro %}
@@ -55,7 +55,7 @@
         type="button"
         id="offcanvas-button"
         class="Button Button--primary Button--icon"
-        uk-toggle="target: #offcanvas"
+        data-uk-toggle="target: #offcanvas"
     >
         <img
             src="{{ 'icons/button_strips_white.svg'|asset }}"
@@ -69,7 +69,7 @@
     
 
 {% macro offCanvas(scope) %}
-    <div id="offcanvas" class="OffCanvas" uk-offcanvas="overlay: true; flip: true">
+    <div id="offcanvas" class="OffCanvas" data-offcanvas="overlay: true; flip: true">
         <div class="uk-offcanvas-bar OffCanvas__layout">
             <button class="uk-offcanvas-close OffCanvas__close" type="button">
                 <img
