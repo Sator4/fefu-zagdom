@@ -8,11 +8,11 @@
 
 {% macro content(scope) %}
     <ul
-    class="
-        SiteNav
-        {{ scope.column ? "SiteNav--column" }}
-        {{ scope.white ? "SiteNav--white" }}
-    "
+        class="
+            SiteNav
+            {{ scope.column ? "SiteNav--column" }}
+            {{ scope.white ? "SiteNav--white" }}
+        "
     >
         {% for item in scope.items %}
             {% set item = {

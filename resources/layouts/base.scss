@@ -29,16 +29,38 @@
         &--projects {
             background-color: $color-snow-drift;
 
-            padding: 92px 60px;
+            // padding: 92px 60px;
 
-            @include vw-sm-down {
-                padding: 32px 16px;
-            }
+            // @include vw-sm-down {
+            //     padding: 32px 16px;
+            // }
         }
 
-        &--newsList {
-            padding: 80px 82px;
+        // &--newsList {
+        //     padding: 80px 82px;
+        // }
+    }
+}
+
+.Page {
+    padding-y: 40px 80px;
+
+    @include vw-sm-down {
+        padding-top: 20px;
+    }
+
+    &__breadcrumbs {
+        padding-bottom: 48px;
+
+        @include vw-sm-down {
+            padding-bottom: 32px;
         }
+    }
+
+    &__title {
+        @include page-title-mixin;
+
+        margin-bottom: 32px;
     }
 }
 

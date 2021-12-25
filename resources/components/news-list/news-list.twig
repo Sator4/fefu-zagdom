@@ -4,50 +4,25 @@
     items: items ?? [],
 } %}
 
-{% macro news(data) %}
-    {% set data = {
-        image: data.image ?? '',
-        date: data.date ?? '',
-        title: data.title ?? '',
-        text: data.text ?? '',
-    } %}
-
-    <article class="NewsCard">
-        <img
-            src="{{ data.image }}"
-            alt="{{ data.title }}"
-            class="NewsCard__image"
-        >
-        <span class="NewsCard__date">
-            {{ data.date }}
-        </span>
-        <h3 class="NewsCard__title">
-            {{ data.title|raw }}
-        </h3>
-        <p>
-            {% set limit = 40 %}
-            {% set text = data.text|length > limit ? data.text|striptags|slice(0, limit) ~ '...' : data.text %}
-            {{ text|raw }}
-        </p>
-    </article>
-{% endmacro %}
-
 {% macro content(scope) %}
-    {% import _self as macros %}
-
     <section class="NewsList">
         <header class="NewsList__header">
             <h2 class="NewsList__title">
                 Новости
             </h2>
-            <a href="/" class="Button Button--secondary">
+            <a href="{{ route('news') }}" class="Button Button--secondary">
                 Все новости
             </a>
         </header>
         <ul class="NewsList__list">
             {% for item in scope.items %}
                 <li class="NewsList__item">
-                    {{ macros.news(item) }}
+                    {% include '@components/news-card/news-card.twig' with {
+                        image: item.image ?? '',
+                        date: item.date ?? '',
+                        title: item.title ?? '',
+                        text: item.text ?? '',
+                    } %}
                 </li>
             {% endfor %}
         </ul>

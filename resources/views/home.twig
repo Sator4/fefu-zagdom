@@ -51,25 +51,25 @@
     ],
     news: [
         {
-            image: 'images/mockup/news/news-1.png'|asset,
+            image: 'images/mockup/news/news-1.png',
             date: '20 авг 2021',
             title: 'Как сделать строительство дешевле?',
             text: 'Строительство дома можно сделать дешевле — выбрав проект...',
         },
         {
-            image: 'images/mockup/news/news-2.png'|asset,
+            image: 'images/mockup/news/news-2.png',
             date: '20 авг 2021',
             title: 'Почему Гуд Вилл строит лучшие дома?',
             text: 'Одноэтажный дом из газобетона габаритными размерами 10.73 х 10.73 м. и жилой площадью 101 кв. м. с вальмовой кровлей\n\nПостроен по индивидуальному проекту.',
         },
         {
-            image: 'images/mockup/news/news-3.png'|asset,
+            image: 'images/mockup/news/news-3.png',
             date: '20 авг 2021',
             title: 'Преимущества и недостатки частного дома',
             text: 'Первое и главное: строим дом индивидуально для вас, по вашим...',
         },
         {
-            image: 'images/mockup/news/news-4.png'|asset,
+            image: 'images/mockup/news/news-4.png',
             date: '20 авг 2021',
             title: 'Из чего мы строим дома в ипотеку?',
             text: 'Самый популярный вопрос наших клиентов касается материалов, которы...',
@@ -94,17 +94,23 @@
     </div>
 
     <div class="Layout__section Layout__section--projects">
-        {% include "@components/projects-section/projects-section.twig" with {
-            items: scope.projectsSection,
-        } %}
+        <div class="Container">
+            {% include "@components/projects-section/projects-section.twig" with {
+                items: scope.projectsSection,
+            } %}
+        </div>
     </div>
 
     <div class="Container">
-        <div class="Layout__section Layout__section--news">
-            {% include "@components/news-list/news-list.twig" with {
+        <div class="Layout__section">
+            {% include '@components/news-list/news-list.twig' with {
                 items: scope.news,
             } %}
         </div>
     </div>
     
+{% endblock %}
+
+{% block modals %}
+    {{ parent() }}
 {% endblock %}
